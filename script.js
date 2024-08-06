@@ -16,12 +16,12 @@ fetch(jsonUrl)
 //optionlardan çekilen veriyi yazdırma
 function getSelectedCity() {
   const selectedCity = sec.value;
-  const locationUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${selectedCity}`;
+  const locationUrl = `//dataservice.accuweather.com/locations/v1/cities/search?apikey=${api_key}&q=${selectedCity}`;
   fetch(locationUrl)
     .then((res) => res.json())
     .then((locationData) => {
       const locationKey = locationData[0].Key;
-      const weatherUrl = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${api_key}`;
+      const weatherUrl = `//dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${api_key}`;
       console.log("Location Data:", locationData);
       console.log(`Location Key for ${selectedCity}: ${locationKey}`);
       return fetch(weatherUrl);
